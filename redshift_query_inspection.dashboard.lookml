@@ -17,7 +17,7 @@
     height: 3
     width: 8
     title:
-    model: redshift_model
+    model: Admin
     explore: redshift_queries
     measures: [redshift_queries.total_time_executing]
     listen:
@@ -62,7 +62,7 @@
     height: 3
     width: 8
     title:
-    model: redshift_model
+    model: Admin
     explore: redshift_query_execution
     measures: [redshift_query_execution.total_bytes_broadcast, redshift_query_execution.total_bytes_distributed,
       redshift_query_execution.total_bytes_scanned, redshift_query_execution.total_rows_sorted_approx,
@@ -111,7 +111,7 @@
     width: 16
     type: table
     title: Query text
-    model: redshift_model
+    model: Admin
     explore: redshift_queries
     dimensions: [redshift_queries.text]
     listen:
@@ -157,8 +157,8 @@
     type: single_value
     height: 3
     width: 8
-    title: 
-    model: redshift_model
+    title:
+    model: Admin
     explore: redshift_query_execution
     measures: [redshift_query_execution.total_bytes_broadcast, redshift_query_execution.total_bytes_distributed,
       redshift_query_execution.total_bytes_scanned, redshift_query_execution.total_rows_sorted_approx,
@@ -205,8 +205,8 @@
     type: single_value
     height: 3
     width: 8
-    title: 
-    model: redshift_model
+    title:
+    model: Admin
     explore: redshift_query_execution
     measures: [redshift_query_execution.total_bytes_broadcast, redshift_query_execution.total_bytes_distributed,
       redshift_query_execution.total_bytes_scanned, redshift_query_execution.total_rows_sorted_approx,
@@ -253,8 +253,8 @@
     type: single_value
     height: 3
     width: 8
-    title: 
-    model: redshift_model
+    title:
+    model: Admin
     explore: redshift_query_execution
     measures: [redshift_query_execution.total_bytes_broadcast, redshift_query_execution.total_bytes_distributed,
       redshift_query_execution.total_bytes_scanned, redshift_query_execution.total_rows_sorted_approx,
@@ -298,13 +298,13 @@
     single_value_title: Rows sorted
     hidden_fields: [redshift_query_execution.total_bytes_broadcast, redshift_query_execution.total_bytes_distributed,
       redshift_query_execution.total_bytes_scanned]
-      
+
   - name: was_disk_based
     type: single_value
     height: 3
     width: 8
-    title: 
-    model: redshift_model
+    title:
+    model: Admin
     explore: redshift_query_execution
     measures: [redshift_query_execution.total_bytes_broadcast, redshift_query_execution.total_bytes_distributed,
       redshift_query_execution.total_bytes_scanned, redshift_query_execution.total_rows_sorted_approx,
@@ -355,7 +355,7 @@
     height: 6
     width: 32
     type: table
-    model: redshift_model
+    model: Admin
     explore: redshift_tables
     dimensions: [redshift_tables.schema, redshift_tables.table, redshift_tables.rows_in_table,
       redshift_tables.distribution_style, redshift_tables.skew_rows, redshift_tables.encoded,
@@ -403,13 +403,13 @@
     height: 18
     width: 32
     type: table
-    model: redshift_model
+    model: Admin
     explore: redshift_plan_steps
     dimensions: [redshift_plan_steps.step, redshift_plan_steps.parent_step, redshift_plan_steps.operation,
       redshift_plan_steps.network_distribution_type, redshift_plan_steps.operation_argument,
       redshift_plan_steps.table, redshift_plan_steps.rows, redshift_plan_steps.bytes]
     listen:
-      query: redshift_plan_steps.query 
+      query: redshift_plan_steps.query
     sorts: [redshift_plan_steps.step]
     limit: '2000'
     column_limit: '50'
@@ -427,7 +427,7 @@
     height: 18
     width: 32
     type: table
-    model: redshift_model
+    model: Admin
     explore: redshift_query_execution
     dimensions: [redshift_query_execution.step, redshift_query_execution.label, redshift_query_execution.was_diskbased,
       redshift_query_execution.rows_out, redshift_query_execution.bytes, redshift_query_execution.step_skew,

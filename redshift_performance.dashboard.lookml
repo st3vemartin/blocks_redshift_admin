@@ -4,24 +4,24 @@
   rows:
     - elements: [query_time_histogram, longest_queries]
       height: 300
-      
+
     - elements: [modeling_header]
       height: 100
     - elements: [network_distribution_piechart,network_distribution_top_joins]
       height: 300
-      
+
     - elements: [capacity_header]
       height: 100
     - elements: [queries_and_queued_per_hour]
       height: 300
-      
+
 
   #filters:
   elements:
   - name: query_time_histogram
     title: "Query time histogram"
     type: looker_column
-    model: redshift_model
+    model: Admin
     explore: redshift_queries
     dimensions: [redshift_queries.time_executing_roundup5]
     measures: [redshift_queries.count]
@@ -61,7 +61,7 @@
   - name: longest_queries
     title: "Top 10 longest running queries"
     type: table
-    model: redshift_model
+    model: Admin
     explore: redshift_queries
     dimensions: [redshift_queries.query, redshift_queries.substring, redshift_queries.time_executing_roundup1]
     sorts: [redshift_queries.time_executing_roundup1 desc]
@@ -86,11 +86,11 @@
     title_text: "Modeling"
     subtitle_text: ""
     body_text: ""
-    
+
   - name: network_distribution_piechart
     title: Network distribution breakdown
     type: looker_pie
-    model: redshift_model
+    model: Admin
     explore: redshift_plan_steps
     dimensions: [redshift_plan_steps.network_distribution_type]
     measures: [redshift_queries.total_time_executing]
@@ -117,11 +117,11 @@
       DS_DIST_NONE: "#276300"
       DS_DIST_ALL_INNER: "#5f00cf"
       DS_DIST_ALL_NONE: "#1c8b19"
-    
+
   - name: network_distribution_top_joins
     title: Top Network Distribution Operations
     type: table
-    model: redshift_model
+    model: Admin
     explore: redshift_plan_steps
     dimensions: [redshift_plan_steps.network_distribution_type, redshift_plan_steps.operation_argument]
     measures: [redshift_queries.count, redshift_queries.total_time_executing, redshift_queries.time_executing_per_query]
@@ -153,18 +153,18 @@
       show_hide: show
       first_last: first
       num_rows: '20'
-    
-    
+
+
   - name: capacity_header
     type: text
     title_text: "Capacity"
     subtitle_text: ""
     body_text: ""
-    
+
   - name: queries_and_queued_per_hour
     title: Queries submitted & queued by hour
     type: looker_line
-    model: redshift_model
+    model: Admin
     explore: redshift_queries
     dimensions: [redshift_queries.start_hour]
     fill_fields: [redshift_queries.start_hour]

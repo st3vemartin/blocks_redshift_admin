@@ -8,7 +8,7 @@
   - name: table_load_summary
     title: 'Table Load Summary'
     type: table
-    model: redshift_model
+    model: Admin
     explore: redshift_data_loads
     dimensions: [redshift_data_loads.root_bucket, redshift_data_loads.s3_path_clean, redshift_data_loads.file_stem]
     measures: [redshift_data_loads.hours_since_last_load]
@@ -22,7 +22,7 @@
   - name: recent_files_loaded
     title: 'Recent Files Loaded'
     type: table
-    model: redshift_model
+    model: Admin
     explore: redshift_data_loads
     dimensions: [redshift_data_loads.file_name]
     measures: [redshift_data_loads.hours_since_last_load]
@@ -38,7 +38,7 @@
   - name: recent_load_errors
     title: 'Recent Load Errors'
     type: table
-    model: redshift_model
+    model: Admin
     explore: redshift_etl_errors
     dimensions: [redshift_etl_errors.error_date, redshift_etl_errors.file_name, redshift_etl_errors.column_name,
       redshift_etl_errors.column_data_type, redshift_etl_errors.error_reason]
@@ -53,7 +53,7 @@
   - name: database_consumption
     title: 'Database Consumption'
     type: table
-    model: redshift_model
+    model: Admin
     explore: redshift_db_space
     dimensions: [redshift_db_space.schema, redshift_db_space.table_stem]
     measures: [redshift_db_space.total_rows, redshift_db_space.total_megabytes, redshift_db_space.total_tables]
