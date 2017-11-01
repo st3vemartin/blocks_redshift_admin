@@ -9,15 +9,19 @@ include: "redshift_*.dashboard"
 include: "redshift_*.view"
 
 explore: redshift_data_loads {
+  hidden: yes
 }
 
 explore: redshift_db_space {
+  hidden: yes
 }
 
 explore: redshift_etl_errors {
+  hidden: yes
 }
 
 explore: redshift_tables {
+  hidden: yes
   persist_for: "0 seconds"
   view_label: "[Redshift Tables]"
   join: redshift_query_execution {
@@ -42,6 +46,7 @@ explore: redshift_tables {
 }
 
 explore: redshift_plan_steps {
+  hidden: yes
   persist_for: "0 seconds"
   join: redshift_tables {
     sql_on: ${redshift_tables.table}=${redshift_plan_steps.table} ;;
@@ -98,14 +103,18 @@ explore: redshift_plan_steps {
 }
 
 explore: redshift_queries {
+  hidden: yes
   persist_for: "0 seconds"
 }
 
 explore: redshift_slices {
+  hidden: yes
   persist_for: "0 seconds"
 }
 
 explore: redshift_query_execution {
+  hidden: yes
+  view_label: "[Query Execution]"
   persist_for: "0 seconds"
   fields: [ALL_FIELDS*, -redshift_query_execution.emitted_rows_to_table_rows_ratio]
 }
