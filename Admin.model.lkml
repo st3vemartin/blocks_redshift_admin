@@ -20,6 +20,8 @@ explore: redshift_etl_errors {
   hidden: yes
 }
 
+explore: redshift_query_queue_times {}
+
 explore: redshift_tables {
   hidden: yes
   persist_for: "0 seconds"
