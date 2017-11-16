@@ -1,16 +1,13 @@
 view: redshift_query_queue_times {
   derived_table: {
-    sql: select count(*) as query_count
-      , COALESCE(SUM((total_queue_time > 0)::int ), 0) as queued_count
-      , DATE_TRUNC('hour', dateadd(hour,-5,service_class_start_time)) as start_time
+    sql: select query_count
+      , queued_count
+      , start_time
 
-      from STL_WLM_QUERY
+      from query_queue_times_20171110
 
-      where
-            dateadd(hour,-5,service_class_start_time) < '11/11/2017'
-       and  dateadd(hour,-5,service_class_start_time) >= '11/10/2017'
 
-      group by DATE_TRUNC('hour', dateadd(hour,-5,service_class_start_time))
+      group by start_time
 
              ;;
   }
