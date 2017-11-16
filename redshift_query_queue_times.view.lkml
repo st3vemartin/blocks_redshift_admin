@@ -1,4 +1,4 @@
-view: redshift_query_queue_times {
+view: redshift_query_counts {
   derived_table: {
     sql: select query_count
       , queued_count
@@ -6,8 +6,6 @@ view: redshift_query_queue_times {
 
       from query_queue_times_20171110
 
-
-      group by start_time
 
              ;;
   }

@@ -20,9 +20,7 @@ explore: redshift_etl_errors {
   hidden: yes
 }
 
-explore: redshift_query_queue_times {
-
-  view_label: "[Redshift Query Counts]"
+explore: redshift_query_counts {
 }
 
 explore: redshift_tables {
