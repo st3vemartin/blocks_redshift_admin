@@ -4,7 +4,7 @@ view: redshift_query_counts {
       , queued_count
       , start_time
 
-      from query_queue_times_20171110
+      from public.query_queue_times_20171110
 
 
              ;;
